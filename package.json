@@ -1,0 +1,43 @@
+{
+  "name": "scrape-chat",
+  "version": "0.1.0",
+  "description": "Web scraper com IA numa interface de chat: descreva o que quer extrair, o agente escolhe a skill certa e devolve os dados como artefatos.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "setup": "node scripts/install.ts",
+    "validate": "node scripts/validate.ts",
+    "job": "node scripts/job.ts",
+    "dev": "node scripts/dev.ts",
+    "server": "node src/server/main.ts",
+    "dev:server": "node --watch-path=src --watch-path=scripts src/server/main.ts",
+    "build": "vite build --config web/vite.config.ts",
+    "typecheck": "tsc && tsc -p web",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "e2e": "npm run build && node --test \"test/e2e/*.e2e.ts\"",
+    "e2e:real": "node scripts/e2e-real.ts",
+    "check": "npm run typecheck && npm test && npm run validate"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.288",
+    "ajv": "8.20.0",
+    "browse": "0.11.1",
+    "just-scrape": "1.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "scrapegraph-js": "2.2.1",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.2"
+  }
+}

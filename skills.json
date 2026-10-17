@@ -1,0 +1,30 @@
+{
+  "$comment": "Skills externas (do skills.sh / GitHub) que o scrape-chat usa. `npm run setup` instala tudo isto + as skills locais de skills/ para cada agente em `agents`. `role: runtime` = o agente do chat usa ao fazer scraping; `role: dev` = usada só para construir o projeto.",
+  "agents": ["claude-code"],
+  "external": [
+    {
+      "source": "scrapegraphai/just-scrape",
+      "skills": ["just-scrape"],
+      "role": "runtime",
+      "why": "Motor principal: search, scrape, extract com schema JSON, crawl e monitor via ScrapeGraph AI (renderiza JS). Precisa de SGAI_API_KEY e gasta créditos."
+    },
+    {
+      "source": "browserbase/skills",
+      "skills": ["browser"],
+      "role": "runtime",
+      "why": "Plano B, achado com find-skills: navegador real dirigido por linguagem natural (clicar, rolar, preencher, paginação, páginas com login do próprio usuário). Sempre local: o servidor tira BROWSERBASE_API_KEY do ambiente do agente."
+    },
+    {
+      "source": "vercel-labs/skills",
+      "skills": ["find-skills"],
+      "role": "dev",
+      "why": "Procura skills novas no skills.sh quando aparecer um caso que as atuais não cobrem."
+    },
+    {
+      "source": "anthropics/skills",
+      "skills": ["frontend-design"],
+      "role": "dev",
+      "why": "Guia de design para a interface de chat e os artefatos (passo 4 em diante)."
+    }
+  ]
+}

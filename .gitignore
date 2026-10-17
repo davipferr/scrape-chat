@@ -1,0 +1,15 @@
+node_modules/
+
+# Skills instaladas pelo `npm run setup` (reproduzíveis a partir do skills.json,
+# como o node_modules é reproduzível a partir do package.json)
+.claude/skills/
+.agents/skills/
+
+# Chaves de API (SGAI_API_KEY, ANTHROPIC_API_KEY, ...)
+.env
+.env.*
+!.env.example
+
+# Resultados de scraping salvos localmente
+/data/
+/web/dist/
